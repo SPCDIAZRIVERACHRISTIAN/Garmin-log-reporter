@@ -1,10 +1,10 @@
 # Garmin-log-reporter
 A program to fetch your running data to feed it to ai so that it can coach you or give you suggestions on how to improve your run.
-
+---
 #Progress
-
+---
 ##Phase 0
-
+---
 This was an exploratory phase where I found a Python library called garminconnect that does all the scrapping for me.
 The plan is to leverage this library to fetch my running data from it call it from Rust and automize data fetching for it.
 Then eliminate the need to use the lib for scrapping garmin and fetch it with Rust entirely.
