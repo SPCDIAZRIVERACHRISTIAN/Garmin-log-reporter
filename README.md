@@ -123,5 +123,6 @@ Notes:
 
 ## Status
 
-Phase 0 complete.  
-Next step: implement Python extractor class.
+Phase 0 complete.
+Phase 1 complete.
+Next step: Rust parser + weekly grouping .
