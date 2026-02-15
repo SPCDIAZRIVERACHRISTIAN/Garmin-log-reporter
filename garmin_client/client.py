@@ -1,5 +1,4 @@
 from garminconnect import Garmin
-from garth.exc import GarthHTTPError
 from .api_safe import safe_api_call
 import logging
 
@@ -11,37 +10,37 @@ class GarminClient:
         self.config = config
         self.api = None
 
-    def login(self, mfa_callback=None):
-
-        for _ in range(3):
-            api = Garmin(
-                email=self.config.email,
-                password=self.config.password,
-                is_cn=False,
-                return_on_mfa=True,
-            )
-
-            result1, result2 = api.login()
-
-            if result1 == "needs_mfa":
-                if not mfa_callback:
-                    raise Exception("Provide an MFA function")
-
-                code = mfa_callback()
-
-                try:
-                    api.resume_login(result2, code)
-
-                except GarthHTTPError as e:
-                    if "401" in str(e) or "403" in str(e):
-                        continue
-                    raise
-
+    def load_session(self):
+        try:
+            api = Garmin()
+            api.garth.load(self.config.tokenstore)
             self.api = api
-            self.api.garth.dump(self.config.tokenstore)
+            return True
+        except Exception:
+            return False
+
+    def login(self, mfa_callback=None):
+        # 1. Try tokenstore first
+        if self.load_session():
             return
 
-        raise Exception("Invalid email or password")
+        # 2. Credential login
+        api = Garmin(
+            self.config.email,
+            self.config.password,
+            return_on_mfa=True,
+        )
+
+        result1, result2 = api.login()
+
+        if result1 == "needs_mfa":
+            if not callable(mfa_callback):
+                raise Exception("MFA required")
+            api.resume_login(result2, mfa_callback())
+
+        # 3. Persist tokens
+        api.garth.dump(self.config.tokenstore)
+        self.api = api
 
     def is_connected(self):
         return self.api is not None

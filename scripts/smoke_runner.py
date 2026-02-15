@@ -18,26 +18,22 @@ client = GarminClient(Config())
 
 
 # login
-success, _, err = client.login(prompt_mfa_code)
-if not success:
-    fail(err)
+success = client.login(prompt_mfa_code)
 
 ok("login works")
 
 
 # fetch activities
-success, acts, err = client.get_activities("2024-01-01", "2025-01-01")
-if not success:
-    fail(err)
+data = client.get_activities("2024-01-01", "2025-01-01")
 
-if not acts:
+if not data:
     fail("no activities returned")
 
-ok(f"{len(acts)} activities fetched")
+ok(f"{len(data)} activities fetched")
 
 
 # first activity
-first = acts[0]
+first = data[0]
 
 if "activityId" not in first:
     fail("activity missing id")
@@ -46,9 +42,7 @@ ok("activity list valid")
 
 
 # detail call
-success, detail, err = client.get_activity(first["activityId"])
-if not success:
-    fail(err)
+detail = client.get_activity(first["activityId"])
 
 if not isinstance(detail, dict):
     fail("detail response invalid")
