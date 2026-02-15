@@ -2,6 +2,14 @@ import sys
 import readchar
 
 
+def init_api(client, mfa_callback=None):
+    try:
+        client.login(mfa_callback)
+        return True, None
+    except Exception as e:
+        return False, str(e)
+
+
 def safe_readkey() -> str:
     """Safe wrapper around readchar.readkey() that handles non-TTY environments.
 
