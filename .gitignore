@@ -25,3 +25,4 @@ target
 your_data
 .env
 demo.py
+__pycache__/

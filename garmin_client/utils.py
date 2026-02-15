@@ -29,3 +29,11 @@ def format_timedelta(td):
     minutes, seconds = divmod(td.seconds + td.days * 86400, 60)
     hours, minutes = divmod(minutes, 60)
     return f"{hours:d}:{minutes:02d}:{seconds:02d}"
+
+
+def prompt_mfa_code():
+    while True:
+        code = input("Enter Garmin MFA code: ").strip()
+        if code:
+            return code
+        print("Code cannot be empty.")
