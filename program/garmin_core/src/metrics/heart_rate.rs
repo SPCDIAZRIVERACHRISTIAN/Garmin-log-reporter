@@ -1,5 +1,5 @@
 #[derive(Debug, Clone, Copy, PartialEq, PartialOrd)]
-pub struct HeartRate(u16);
+pub struct HeartRate(pub u16);
 
 impl HeartRate {
     pub fn new(bpm: u16) -> Self {

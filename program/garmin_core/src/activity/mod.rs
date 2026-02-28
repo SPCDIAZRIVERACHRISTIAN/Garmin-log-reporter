@@ -5,5 +5,5 @@ pub mod split;
 
 pub use activity::Activity;
 pub use id::ActivityId;
-pub use metadata::Metadata;
+pub use metadata::ActivityMetadata;
 pub use split::Split;

@@ -1,12 +1,11 @@
 use crate::activity::{ActivityId, ActivityMetadata, Split};
-use crate::classification::{ActivityType, Terrain};
+use crate::classification::Terrain;
 use crate::metrics::HeartRate;
 use crate::units::{Distance, Duration, Timestamp};
 
 #[derive(Debug, Clone)]
 pub struct Activity {
     pub id: ActivityId,
-    pub activity_type: ActivityType,
     pub terrain: Terrain,
     pub start_time: Timestamp,
     pub distance: Distance,
@@ -20,7 +19,6 @@ pub struct Activity {
 impl Activity {
     pub fn new(
         id: ActivityId,
-        activity_type: ActivityType,
         terrain: Terrain,
         start_time: Timestamp,
         distance: Distance,
@@ -32,7 +30,6 @@ impl Activity {
     ) -> Self {
         Self {
             id,
-            activity_type,
             terrain,
             start_time,
             distance,

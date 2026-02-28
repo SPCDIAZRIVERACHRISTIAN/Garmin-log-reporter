@@ -1,5 +1,5 @@
-use crate::metrics::{HeartRate, Pace};
-use crate::units::{Distance, Duration};
+use crate::metrics::HeartRate;
+use crate::units::{Distance, Duration, Pace};
 
 #[derive(Debug, Clone)]
 pub struct Split {
