@@ -1,0 +1,16 @@
+{
+    "activity_id": 19150295098,
+    "activity_name": "Cintrona Running",
+    "sport": "running",
+    "start_time": "2025-05-17 05:54:06",
+    "timestamp": 1747475646000,
+    "distance_meters": 3161.389892578125,
+    "duration_seconds": 1123.60205078125,
+    "avg_hr": 184.0,
+    "max_hr": 193.0,
+    "avg_speed": 2.813999891281128,
+    "max_speed": 3.986999988555908,
+    "calories": 299.0,
+    "steps": 3164,
+    "location": "Cintrona"
+}

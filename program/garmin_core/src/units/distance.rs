@@ -1,5 +1,5 @@
 #[derive(Debug, Clone, Copy, PartialEq, PartialOrd)]
-pub struct Distance(f64);
+pub struct Distance(pub f64);
 
 impl Distance {
     pub fn from_meters(m: f64) -> Self {

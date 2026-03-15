@@ -2,6 +2,8 @@ use crate::activity::{ActivityId, ActivityMetadata, Split};
 use crate::classification::Terrain;
 use crate::metrics::HeartRate;
 use crate::units::{Distance, Duration, Timestamp};
+use garmin_parser::raw_activity::RawActivity;
+use std::convert::TryFrom;
 
 #[derive(Debug, Clone)]
 pub struct Activity {

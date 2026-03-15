@@ -1,4 +1,4 @@
-use chrono::{DateTime, Utc};
+use chrono::{DateTime, TimeZone, Utc};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Timestamp(DateTime<Utc>);
@@ -10,5 +10,21 @@ impl Timestamp {
 
     pub fn value(self) -> DateTime<Utc> {
         self.0
+    }
+
+    pub fn from_epoch(ms: u64) -> Self {
+        let seconds = (ms / 1000) as i64;
+        let nanos = ((ms % 1000) * 1_000_000) as u32;
+
+        let dt = TimeZone
+            .timestamp_opt(seconds, nanos)
+            .single()
+            .expect("invalid timestamp");
+
+        Self(dt)
+    }
+
+    pub fn date(&self) -> chrono::NaiveDate {
+        self.0.date_naive()
     }
 }

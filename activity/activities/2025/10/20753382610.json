@@ -1,0 +1,16 @@
+{
+    "activity_id": 20753382610,
+    "activity_name": "Juan Sánchez Running",
+    "sport": "running",
+    "start_time": "2025-10-21 05:40:03",
+    "timestamp": 1761039603000,
+    "distance_meters": 4970.080078125,
+    "duration_seconds": 2528.031005859375,
+    "avg_hr": 150.0,
+    "max_hr": 172.0,
+    "avg_speed": 1.965999960899353,
+    "max_speed": 2.76200008392334,
+    "calories": 405.0,
+    "steps": 6414,
+    "location": "Juan Sánchez"
+}

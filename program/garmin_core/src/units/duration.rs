@@ -1,5 +1,5 @@
 #[derive(Debug, Clone, Copy, PartialEq, PartialOrd)]
-pub struct Duration(f64);
+pub struct Duration(pub f64);
 
 impl Duration {
     pub fn from_seconds(sec: f64) -> Self {
