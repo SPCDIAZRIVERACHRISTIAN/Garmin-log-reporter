@@ -80,6 +80,8 @@ dependencies = [
 name = "garmin_parser"
 version = "0.1.0"
 dependencies = [
+ "chrono",
+ "garmin_core",
  "serde",
  "serde_json",
  "walkdir",

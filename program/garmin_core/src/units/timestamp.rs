@@ -16,7 +16,7 @@ impl Timestamp {
         let seconds = (ms / 1000) as i64;
         let nanos = ((ms % 1000) * 1_000_000) as u32;
 
-        let dt = TimeZone
+        let dt = Utc
             .timestamp_opt(seconds, nanos)
             .single()
             .expect("invalid timestamp");

@@ -7,3 +7,8 @@ edition = "2024"
 serde = { version = "1.0.228", features = ["derive"] }
 serde_json = "1.0.149"
 walkdir = "2"
+chrono = "0.4"
+garmin_core = { path = "../garmin_core" }
+
+[dev-dependencies]
+chrono = "0.4"
