@@ -1,6 +1,6 @@
 import sys
 from datetime import date, timedelta
-
+from garmin_client.exporters import DataExporter as de
 from garmin_client.client import GarminClient
 from garmin_client.config import Config
 from garmin_client.utils import init_api, prompt_mfa_code
@@ -11,6 +11,7 @@ def main():
 
     # Load config
     config = Config()
+    config.ensure_dirs()
 
     # Create client
     client = GarminClient(config)
@@ -41,9 +42,12 @@ def main():
             print(f"❌ API test failed: {err}")
             sys.exit(1)
 
+        de.export_activities(data1)
+
         print("✅ API reachable")
         print(f"worked but you havent done anything: {data}")
         print(f"📊 Activities returned: {len(data1)}")
+        print(f"activities saved")
 
     except Exception as e:
         print(f"❌ Healthcheck error: {e}")

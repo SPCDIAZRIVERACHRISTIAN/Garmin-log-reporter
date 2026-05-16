@@ -1,0 +1,3 @@
+[workspace]
+resolver = "3"
+members = ["analytics", "garmin_core", "garmin_parser", "gui", "storage", "tui"]

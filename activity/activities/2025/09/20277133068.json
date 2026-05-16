@@ -1,0 +1,16 @@
+{
+    "activity_id": 20277133068,
+    "activity_name": "Hato Tejas - Base",
+    "sport": "running",
+    "start_time": "2025-09-04 06:18:37",
+    "timestamp": 1756981117000,
+    "distance_meters": 1556.1600341796875,
+    "duration_seconds": 703.8109741210938,
+    "avg_hr": 164.0,
+    "max_hr": 189.0,
+    "avg_speed": 2.2109999656677246,
+    "max_speed": 3.3959999084472656,
+    "calories": 138.0,
+    "steps": 1860,
+    "location": "Hato Tejas"
+}

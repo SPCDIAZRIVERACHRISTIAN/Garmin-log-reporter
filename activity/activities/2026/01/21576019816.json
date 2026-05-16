@@ -1,0 +1,16 @@
+{
+    "activity_id": 21576019816,
+    "activity_name": "Minillas Running",
+    "sport": "running",
+    "start_time": "2026-01-17 08:00:10",
+    "timestamp": 1768651210000,
+    "distance_meters": 3841.18994140625,
+    "duration_seconds": 1749.72705078125,
+    "avg_hr": 174.0,
+    "max_hr": 188.0,
+    "avg_speed": 2.194999933242798,
+    "max_speed": 3.368000030517578,
+    "calories": 370.0,
+    "steps": 4534,
+    "location": "Minillas"
+}
