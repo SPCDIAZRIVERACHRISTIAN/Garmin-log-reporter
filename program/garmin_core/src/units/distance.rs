@@ -1,4 +1,6 @@
-#[derive(Debug, Clone, Copy, PartialEq, PartialOrd)]
+use serde::{ Serialize, Deserialize };
+
+#[derive(Debug, Clone, Copy, PartialEq, PartialOrd, Serialize, Deserialize)]
 pub struct Distance(pub f64);
 
 impl Distance {

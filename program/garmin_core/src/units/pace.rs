@@ -1,7 +1,8 @@
 use super::Distance;
 use super::Duration;
+use serde::{Serialize, Deserialize};
 
-#[derive(Debug, Clone, Copy, PartialEq, PartialOrd)]
+#[derive(Debug, Clone, Copy, PartialEq, PartialOrd, Serialize, Deserialize)]
 pub struct Pace {
     duration: Duration,
     distance: Distance,

@@ -1,9 +1,10 @@
+use serde::{Serialize, Deserialize};
 use crate::activity::{ActivityId, ActivityMetadata, Split};
 use crate::classification::Terrain;
 use crate::metrics::HeartRate;
 use crate::units::{Distance, Duration, Timestamp};
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Activity {
     pub id: ActivityId,
     pub terrain: Terrain,

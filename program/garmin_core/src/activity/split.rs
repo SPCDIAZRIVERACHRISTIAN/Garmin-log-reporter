@@ -1,7 +1,8 @@
+use serde::{ Serialize, Deserialize };
 use crate::metrics::HeartRate;
 use crate::units::{Distance, Duration, Pace};
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Split {
     pub index: u32,
     pub distance: Distance,
