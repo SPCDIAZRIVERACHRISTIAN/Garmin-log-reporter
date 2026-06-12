@@ -8,6 +8,22 @@ This was an exploratory phase where I found a Python library called garminconnec
 The plan is to leverage this library to fetch my running data from it call it from Rust and automize data fetching for it.
 Then eliminate the need to use the lib for scrapping garmin and fetch it with Rust entirely.
 
+---
+## Phase 1
+The core for the data and errors was created made structures for time and distances also.
+created hello world crate holders for core storage cli tui and gui.
+
+---
+## phase 2
+Started the parser to receive data from the python garmin api.
+the workflow goes from api->parser->**<any other module to display or store>**
+
+--- 
+## Phase 3
+Started work on the storage.
+mvp will only have file storage and after that is working we will build db prob sqlite since this will live 
+on the device as a sort of app.
+
 Click on this link for more info on [garminconnect](https://github.com/cyberjunky/python-garminconnect/)
 ---
 ### Features planned:
@@ -59,8 +75,9 @@ Rust consumes the JSON output as a stable data contract.
 Phase 0: Research & architecture definition ✅  
 Phase 1: Python extractor (auth + MFA + GPX → JSON)  
 Phase 2: Rust parser + weekly grouping  
-Phase 3: CLI interface  
-Phase 4: TUI / GUI (optional)
+Phase 3: Storage
+Phase 4: CLI interface  
+Phase 5: TUI / GUI (optional)
 
 ---
 

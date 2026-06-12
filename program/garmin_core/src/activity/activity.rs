@@ -3,7 +3,7 @@ use crate::activity::{ActivityId, ActivityMetadata, Split};
 use crate::classification::Terrain;
 use crate::metrics::HeartRate;
 use crate::units::{Distance, Duration, Timestamp};
-
+// TODO Fix structure use the one in lab/rust
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Activity {
     pub id: ActivityId,
