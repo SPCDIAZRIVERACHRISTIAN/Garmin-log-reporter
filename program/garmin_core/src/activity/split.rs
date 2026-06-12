@@ -1,6 +1,6 @@
-use serde::{ Serialize, Deserialize };
 use crate::metrics::HeartRate;
 use crate::units::{Distance, Duration, Pace};
+use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Split {

@@ -1,7 +1,7 @@
+use crate::raw_activity::RawActivity;
 use garmin_core::activity::Activity;
 use std::fs;
 use std::path::Path;
-use crate::raw_activity::RawActivity;
 
 pub fn parse_activity_file(path: &Path) -> Result<Activity, Box<dyn std::error::Error>> {
     let contents = fs::read_to_string(path)?;
@@ -21,7 +21,9 @@ mod tests {
 
     fn activity_path(relative: &str) -> std::path::PathBuf {
         let manifest = env!("CARGO_MANIFEST_DIR");
-        Path::new(manifest).join("../../activity/activities").join(relative)
+        Path::new(manifest)
+            .join("../../activity/activities")
+            .join(relative)
     }
 
     #[test]
@@ -34,7 +36,10 @@ mod tests {
         assert_eq!(a.duration.seconds(), 1749.72705078125);
         assert_eq!(a.avg_hr.map(|h| h.bpm()), Some(174));
         assert_eq!(a.max_hr.map(|h| h.bpm()), Some(188));
-        assert_eq!(a.start_time.date(), NaiveDate::from_ymd_opt(2026, 1, 17).unwrap());
+        assert_eq!(
+            a.start_time.date(),
+            NaiveDate::from_ymd_opt(2026, 1, 17).unwrap()
+        );
     }
 
     #[test]
@@ -46,7 +51,10 @@ mod tests {
         assert_eq!(a.distance.meters(), 1505.75);
         assert_eq!(a.avg_hr.map(|h| h.bpm()), Some(178));
         assert_eq!(a.max_hr.map(|h| h.bpm()), Some(192));
-        assert_eq!(a.start_time.date(), NaiveDate::from_ymd_opt(2025, 2, 11).unwrap());
+        assert_eq!(
+            a.start_time.date(),
+            NaiveDate::from_ymd_opt(2025, 2, 11).unwrap()
+        );
     }
 
     #[test]
@@ -55,7 +63,10 @@ mod tests {
         let a = parse_activity_file(&path).expect("parse failed");
 
         assert!(a.splits.is_empty());
-        assert!(matches!(a.terrain, garmin_core::classification::Terrain::Unknown));
+        assert!(matches!(
+            a.terrain,
+            garmin_core::classification::Terrain::Unknown
+        ));
     }
 
     #[test]

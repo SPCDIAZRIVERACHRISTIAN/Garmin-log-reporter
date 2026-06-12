@@ -1,3 +1,11 @@
 [workspace]
 resolver = "3"
-members = ["analytics", "garmin_core", "garmin_parser", "gui", "storage", "tui"]
+members = [
+    "analytics",
+    "garmin_cli",
+    "garmin_core",
+    "garmin_parser",
+    "gui",
+    "storage",
+    "tui",
+]

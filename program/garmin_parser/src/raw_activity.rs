@@ -1,9 +1,9 @@
 use chrono::NaiveDateTime;
-use serde::Deserialize;
 use garmin_core::activity::{Activity, ActivityId, ActivityMetadata};
 use garmin_core::classification::Terrain;
 use garmin_core::metrics::HeartRate;
 use garmin_core::units::{Distance, Duration, Timestamp};
+use serde::Deserialize;
 
 #[derive(Debug, Deserialize)]
 pub struct RawActivity {
@@ -42,6 +42,8 @@ impl From<RawActivity> for Activity {
         let splits = vec![];
         let metadata = ActivityMetadata::empty();
 
-        Activity::new(id, terrain, start_time, distance, duration, avg_hr, max_hr, splits, metadata)
+        Activity::new(
+            id, terrain, start_time, distance, duration, avg_hr, max_hr, splits, metadata,
+        )
     }
 }
